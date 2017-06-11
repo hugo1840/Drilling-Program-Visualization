@@ -1,0 +1,12 @@
+        #div1{ margin: auto; width: 50%; height: 800px; border: 1px solid transparent;
+    	      text-align: center} 
+    	#div2{ margin: 5px; top: 50px; left: 20px; position: absolute; 
+    	      width: 300px; height: 400px; border: 3px solid transparent;
+    	      text-align: left; font-family: 'Open Sans', sans-serif;
+			  font-size: 20px; font-weight: 300; fill: #242424;} 
+	    #div3{ margin: 5px; top: 50px; right: 20%; position: absolute; 
+    	      width: 100px; height: 100px; border: 3px solid transparent;
+    	      text-align: center; font-family: 'Open Sans', sans-serif;
+			  font-size: 20px; font-weight: 300; fill: #242424;} 
+    	.hed{ margin: auto; width: 50%; height: 45px; border: 1px solid transparent; 
+    		  text-align: center; text-indent: -1em}

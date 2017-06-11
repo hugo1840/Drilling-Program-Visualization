@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/ >
+		<title>Radar Chart</title>
+
+		<!-- Google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+		<!-- D3.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+		
+		<link rel="stylesheet" type="text/css" href="riskPIC.css" />
+	
+	</head>
+	<body>
+
+		<h1 class="hed">Risk Num.0023</h1>
+		<h2 class="subhed">Depth: 145m, Type: 2</h2>
+		<div class="radarChart"></div>
+
+		<script src="radarChart.js"></script>
+		<script src="histogram.js"></script>	
+		<script src="treeMapRsk.js"></script>
+		<script>
+			////////////////////////////////////////////////////////////// 
+			//////////////////////// Set-Up ////////////////////////////// 
+			////////////////////////////////////////////////////////////// 
+
+			var margin = {top: 100, right: 100, bottom: 100, left: 100},
+				width = Math.min(600, window.innerWidth - 10) - margin.left - margin.right,
+				height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+					
+			////////////////////////////////////////////////////////////// 
+			////////////////////////// Data ////////////////////////////// 
+			////////////////////////////////////////////////////////////// 
+
+			var data = [
+					  [//Risk1: Num.0023
+						{axis:"Surface TOOL FAILURE",value:0.22},
+						{axis:"Subsurface - SS CEMENT",value:0.28},
+						{axis:"Subsurface - PS FISHING OPERATIONS",value:0.29},
+						{axis:"Surface TRIP - WASHOUT",value:0.17},
+						{axis:"Subsurface - PS WORK TIGHT HOLE",value:0.43},
+						{axis:"Subsurface2 - PS STUCK PIPE",value:0.02},
+						{axis:"Subsurface34 - SS WORK TIGHT HOLE",value:0.21},
+						{axis:"Surface TRIP - MOTOR FAILURE",value:0.50}			
+					  ],//[//Nokia Smartphone
+						//{axis:"Battery Life",value:0.26},
+						//{axis:"Brand",value:0.10},
+						//{axis:"Contract Cost",value:0.30},
+						//{axis:"Design And Quality",value:0.14},
+						//{axis:"Have Internet Connectivity",value:0.22},
+						//{axis:"Large Screen",value:0.04},
+						//{axis:"Price Of Device",value:0.41},
+						//{axis:"To Be A Smartphone",value:0.30}
+					  //]
+					];
+			////////////////////////////////////////////////////////////// 
+			//////////////////// Draw the Chart ////////////////////////// 
+			////////////////////////////////////////////////////////////// 
+
+			var color = d3.scale.ordinal()
+				.range(["#EDC951","#CC333F","#00A0B0"]);
+				
+			var radarChartOptions = {
+			  w: width,
+			  h: height,
+			  margin: margin,
+			  maxValue: 1.0,
+			  levels: 5,
+			  roundStrokes: true,
+			  color: color
+			};
+			//Call function to draw the Radar chart
+			RadarChart(".radarChart", data, radarChartOptions);
+
+			var rskHist = [{year: 2005, loss: 2200},
+						{year: 2006, loss: 3560},
+						{year: 2007, loss: 2135},
+						{year: 2008, loss: 1560},
+						{year: 2009, loss: 1235},
+						{year: 2010, loss: 950},
+						{year: 2011, loss: 765},
+						{year: 2012, loss: 856},
+						{year: 2013, loss: 543},
+						{year: 2014, loss: 348},
+						{year: 2015, loss: 235},
+						{year: 2016, loss: 256}
+					];
+
+			// draw the histograms
+			riskHistory(rskHist);
+
+			// show the tree map
+			treeMap();
+
+		</script>
+	</body>
+</html>

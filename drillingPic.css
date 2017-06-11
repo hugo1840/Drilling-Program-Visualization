@@ -1,0 +1,34 @@
+   		body {
+				font-family: 'Open Sans', sans-serif;
+				font-size: 11px;
+				font-weight: 300;
+				fill: #242424;
+				text-align: center;
+				text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+				cursor: default;
+			}
+
+		.hed{ margin: auto; width: 50%; height: 45px; border: 1px solid transparent; 
+    		  text-align: center; text-indent: -1em;
+    		  font-family: cursive;
+    		}
+
+
+		.overlay {fill: none; pointer-events: all;}
+	
+		.tooltip {position: absolute; width: 120; height: auto; border: 1.5px solid grey; text-align: left}
+    	.tooltip .title{border-bottom: 1px solid #000; text-align: center;}
+		.tooltip .desColor{width: 10px; height: 10px; float: left; margin: 9px 8px 1px 8px;}
+		.tooltip .desText{display: inline;}
+		#next,#prev {
+		    display: inline-block;
+		    width: 120px;
+		    height: 35px;
+		    background: url(img/formbtnbg.png);
+		    border: none;
+		    border-radius: 3px;
+		    color: #fff;
+		    font-size: 16px;
+		    cursor: pointer;
+		    font-family: 'Microsoft Yahei','微软雅黑';
+		}

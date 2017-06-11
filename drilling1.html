@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>PIC08 - Drilling LineChart</title>
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="drillingPic.css" />
+</head>
+
+<body>
+
+	<h1 class="hed">DRILLING SECTION 1</h1>
+	<div class="SvgPlace">
+		<div id="Pic"></div>
+		<div class="Turn">
+			<p>
+			<input type="button" id="prev" onclick="javascript:location.href='casing3.html'" value="Prev">
+			</input>&nbsp;&nbsp;<input type="button" id="next" onclick="javascript:location.href='casing1.html'" value="Next"></input>
+			</p>
+		</div>
+		<div id="Tool"></div>
+	</div>
+	
+	
+
+</body>
+<script type="text/javascript" src="drillingPIC_func.js"></script>
+
+	<script type="text/javascript">
+
+	// BHA runs info
+	var BHAruns = [{begin: [10,35], end: [235,150], WOB: 133, ROP: 0.73, RPM: 2300, bitType: "R", motor: "RSS0993", mudType: "wet", mudWeight: 568},
+				   {begin: [235,150], end: [456,423], WOB: 186, ROP: 0.86, RPM: 3600, bitType: "SSR", motor: "RSS0693", mudType: "superwet", mudWeight: 875},
+				   {begin: [456,423], end: [683,598], WOB: 145, ROP: 0.75, RPM: 2800, bitType: "SR", motor: "RSS0889", mudType: "dry", mudWeight: 645}
+				];
+
+	// geological formations info
+	var formations = [{top: 0, btm: 150, type: "wet", color: d3.rgb(252,157,154)},
+				     {top: 150, btm: 330, type: "superwet", color: d3.rgb(249,205,173)},
+				     {top: 330, btm: 500, type: "dry", color: d3.rgb(200,200,169)},
+				     {top: 500, btm: 850, type: "superdry", color: d3.rgb(131,175,155)}
+				 ];
+
+	// risks			 
+	var rsk = [{num: "0023", depth: 145, type: 2, color: "yellow", 
+					link: "radarRsk1.html",
+					rskInfo: [
+						{axis:"Drilling1",value:0.22},
+						{axis:"Cementing2",value:0.28},
+						{axis:"Zhang",value:0.17},
+						{axis:"Tool3",value:0.22},
+						{axis:"Technic1",value:0.02},
+						{axis:"Technic2",value:0.21}			
+					  ]},
+
+			   {num: "0039", depth: 323, type: 1, color: "black", 
+			   		link: "radarRsk2.html",
+			   		rskInfo: [
+						{axis:"Drilling2",value:0.32},
+						{axis:"Hamza",value:0.29},
+						{axis:"Wang",value:0.17},
+						{axis:"Tool4",value:0.12},
+						{axis:"Technic2",value:0.12},
+						{axis:"Technic3",value:0.21},
+						{axis:"Agreement2",value:0.50}			
+					  ]},
+					  
+			   {num: "0052", depth: 578, type: 5, color: "red", 
+			   		link: "radarRsk3.html",
+			   		rskInfo: [
+						{axis:"Drilling1",value:0.12},
+						{axis:"Cementing3",value:0.28},
+						{axis:"Robert",value:0.29},
+						{axis:"Eric",value:0.37},
+						{axis:"Tool3",value:0.22},
+						{axis:"Technic1",value:0.12},
+						{axis:"Agreement1",value:0.01},
+						{axis:"Agreement2",value:0.50}			
+					  ]}
+	        ];
+	        
+
+	var well = {num: "#01723",
+				longitude: "30'N",
+				latitude: "102'E",
+				client: "BP",
+				bha: BHAruns,
+				formation: formations,
+				risks: rsk 
+			};
+
+	// draw the trajectory, geological formations, etc
+	// without casing
+	// number of casings is chosen by hand here ... need to change it automatically
+	var numCasing1 = 0;
+	var numCasing2 = 0;
+    visualizer(BHAruns, formations, rsk, well, numCasing1, numCasing2);
+
+
+	</script>

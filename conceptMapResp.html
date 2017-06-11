@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>PIC08 - Ganoderma Diagram</title>
+	
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="ganodermaPic.css" />
+
+</head>
+<body>
+	<h1 class="hed">Ganoderma Diagram</h1>
+	<div class="div" id="div1"></div>
+	
+	<script type="text/javascript" src="conceptMap_func.js"></script>
+	<script type="text/javascript">
+
+	// info about the well
+	var well = {num: "01723",
+				longitude: "30'N",
+				latitude: "102'E",
+				client: "BP"
+			};
+
+    // data for drawing the ganoderma diagram	
+	var activityPlan = ["Drilling run - S1", "Run casing - S1", "Cement casing - S1", "Surface stack activities", "Drilling run - S2",
+				"Run casing - S2", "Cement casing - S2", "Drilling run - S3", "Hole opening run - S3", "Coring run - S3"];
+
+	var responsable = ["Marc", "Emmanuel", "Andrea", "Jose", "Zhang", "Sebastien",
+			 "Kurosawa", "Isabelle"];
+
+	var engineering = ["Tool1", "Tool2", "Tool3", "Technic1", "Technic2", "Design1",
+			 "Design2"];
+
+	var risks = ["Risk1", "Risk2", "Risk3", "Risk4", "Risk5"];
+
+	// matrix for drawing the curves between the rectangles and the circles
+	var resPlan = [[1, 1, 0, 0, 1, 1, 0, 0],
+			 [0, 1, 1, 1, 0, 0, 0, 0],
+			 [1, 0, 0, 0, 1, 1, 0, 1],
+			 [0, 0, 1, 0, 0, 1, 1, 0],
+			 [1, 0, 0, 1, 1, 0, 0, 0],
+			 [1, 0, 0, 1, 0, 0, 1, 0],
+			 [0, 1, 1, 0, 0, 0, 0, 1],
+			 [0, 0, 0, 1, 0, 0, 1, 0],
+			 [1, 0, 0, 0, 1, 0, 0, 0],
+			 [0, 0, 1, 0, 0, 1, 0, 0]
+			 ];
+
+	var engPlan = [[1, 0, 0, 1, 0, 0, 0],
+			 [0, 1, 0, 1, 0, 0, 1],
+			 [1, 0, 1, 1, 1, 1, 0],
+			 [0, 0, 1, 0, 0, 1, 1],
+			 [0, 0, 1, 0, 1, 1, 1],
+			 [0, 1, 0, 0, 0, 0, 1],
+			 [0, 0, 1, 0, 1, 0, 0],
+			 [0, 0, 0, 1, 1, 0, 0],
+			 [1, 1, 0, 0, 0, 0, 0],
+			 [0, 0, 0, 1, 0, 0, 1]
+			 ];
+
+	var rskPlan = [[1, 1, 0, 0, 1],
+			 [0, 1, 1, 1, 0],
+			 [1, 0, 0, 0, 1],
+			 [0, 0, 1, 0, 0],
+			 [1, 0, 0, 1, 1],
+			 [1, 0, 0, 1, 0],
+			 [0, 1, 1, 0, 0],
+			 [0, 0, 0, 1, 0],
+			 [1, 0, 0, 0, 1],
+			 [0, 0, 1, 0, 0]
+			 ];
+
+	// draw the ganoderma diagram for configuration "Resp"
+	ganoderma(well, activityPlan, responsable, engineering, risks,
+		resPlan, engPlan, rskPlan, "Resp");
+
+	</script>
+
+</body>
+</html>
